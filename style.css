@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+/* Header */
+
+header {
+    background: white;
+    padding: 25px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+header h1 {
+    font-size: 28px;
+}
+
+header p {
+    color: #6b7280;
+    margin-top: 5px;
+}
+
+header button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+header button:hover {
+    background: #1d4ed8;
+}
+
+/* Main */
+
+main {
+    width: 88%;
+    max-width: 1300px;
+    margin: 30px auto;
+}
+
+/* Dashboard */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.card span {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.card h2 {
+    margin-top: 10px;
+    font-size: 28px;
+}
+
+.warning h2 {
+    color: #dc2626;
+}
+
+/* Toolbar */
+
+.toolbar {
+    margin: 30px 0 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.toolbar input,
+.toolbar select {
+    padding: 13px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: white;
+}
+
+.toolbar input {
+    width: 350px;
+}
+
+/* Products */
+
+.products-section {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+
+.section-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.section-header span {
+    color: #6b7280;
+}
+
+/* Table */
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    background: #f9fafb;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.status {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.in-stock {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.low-stock {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.actions button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.edit {
+    color: #2563eb;
+}
+
+.delete {
+    color: #dc2626;
+}
+
+.empty {
+    padding: 40px;
+    text-align: center;
+    color: #6b7280;
+}
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.close {
+    border: none;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-size: 14px;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+}
+
+.save-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    main {
+        width: 94%;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    header button {
+        width: 100%;
+    }
+
+    .toolbar {
+        flex-direction: column;
+    }
+
+    .toolbar input {
+        width: 100%;
+    }
+
+}

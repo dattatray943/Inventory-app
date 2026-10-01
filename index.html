@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockMate - Inventory Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <h1>StockMate</h1>
+            <p>Simple Inventory Management</p>
+        </div>
+
+        <button onclick="openModal()">+ Add Product</button>
+    </header>
+
+    <main>
+
+        <!-- Dashboard -->
+        <section class="dashboard">
+
+            <div class="card">
+                <span>Total Products</span>
+                <h2 id="totalProducts">0</h2>
+            </div>
+
+            <div class="card">
+                <span>Total Stock</span>
+                <h2 id="totalStock">0</h2>
+            </div>
+
+            <div class="card">
+                <span>Inventory Value</span>
+                <h2 id="inventoryValue">₹0</h2>
+            </div>
+
+            <div class="card warning">
+                <span>Low Stock</span>
+                <h2 id="lowStock">0</h2>
+            </div>
+
+        </section>
+
+        <!-- Search -->
+        <section class="toolbar">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                oninput="displayProducts()"
+            >
+
+            <select id="categoryFilter" onchange="displayProducts()">
+                <option value="all">All Categories</option>
+                <option value="Grocery">Grocery</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Other">Other</option>
+            </select>
+        </section>
+
+        <!-- Products -->
+        <section class="products-section">
+
+            <div class="section-header">
+                <h2>Products</h2>
+                <span id="productCount">0 products</span>
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="productTable">
+                    </tbody>
+
+                </table>
+
+                <div id="emptyMessage" class="empty">
+                    No products found.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Add Product Modal -->
+
+    <div id="productModal" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2 id="modalTitle">Add Product</h2>
+                <button class="close" onclick="closeModal()">×</button>
+            </div>
+
+            <form id="productForm">
+
+                <input type="hidden" id="editId">
+
+                <label>Product Name</label>
+                <input
+                    type="text"
+                    id="productName"
+                    placeholder="e.g. Rice"
+                    required
+                >
+
+                <label>Category</label>
+                <select id="category" required>
+                    <option value="">Select category</option>
+                    <option value="Grocery">Grocery</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label>Price</label>
+                <input
+                    type="number"
+                    id="price"
+                    placeholder="e.g. 1200"
+                    min="0"
+                    required
+                >
+
+                <label>Quantity</label>
+                <input
+                    type="number"
+                    id="quantity"
+                    placeholder="e.g. 20"
+                    min="0"
+                    required
+                >
+
+                <label>Minimum Stock</label>
+                <input
+                    type="number"
+                    id="minimumStock"
+                    placeholder="e.g. 5"
+                    min="0"
+                    required
+                >
+
+                <button type="submit" class="save-btn">
+                    Save Product
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
